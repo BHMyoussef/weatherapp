@@ -51,8 +51,9 @@ class App extends Component{
                                     <Cards {...props} data = {this.state.data}
                                     nextDays = {nextDays} /> }}/>
                     <Route path="/not-found" component={ NotFoundPage } />
-                    <Route path="/" exact component={(props)=> <Cards {...props} data = {this.state.data}
+                    <Route path="/weatherapp" exact component={(props)=> <Cards {...props} data = {this.state.data}
                             nextDays = {nextDays} /> }/>
+                    <Redirect from="/" to="/weatherapp"/>
                     <Redirect to="/not-found" />                  
                 </Switch>
             </div>
