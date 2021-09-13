@@ -1,18 +1,20 @@
 *{
     box-sizing: border-box;
-    font-family: 'Oswald', 'sans-serif';
-    
+    font-family: 'arial', 'sans-serif';
     margin: 0;
 }
 #root{
     min-height: 100vh;
-    background-image: url('./sky.jpg');
+    background:linear-gradient(to right,#6AAED999 48%,#F2E205 52%);
     background-size: cover;
 }
 .container{
     margin: 0 auto 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+}
+a{
+    text-decoration: none;
 }
 @media (min-width:576px){
     .container{
@@ -37,7 +39,6 @@
 
 .header{
     height: 150px;
-    background-color: rgb(148, 211, 66);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,8 +48,9 @@
     font-size: 52pt;
     text-transform: capitalize;
     letter-spacing: 5px;
-    font-weight: 700;
-    color:teal
+    font-weight: 900;
+    color:#262473;
+    letter-spacing: 0px;
 }
 @media (max-width:768px){
     .header h1{
@@ -69,8 +71,7 @@
 .card{
     height: 400px;
     color: #fff;
-    background-color: rgba(219, 216, 216, 0.1);
-    backdrop-filter: blur(80px);
+    background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
     padding: 10px 20px;
     border: 2px solid transparent;
@@ -78,30 +79,40 @@
     border-radius: 10px;
 }
 .card h3{
-    font-size: 32pt;
+    font-size: 24pt;
+    color: #262473;
+    font-weight: 800;
     margin-bottom: 20px;
+    text-transform: capitalize;
+    max-width: 100%;
 }
 .card .date{
-    font-size: 14pt;
+    font-size: 16pt;
+    font-weight: 600;
+    color: #f2a057;
     margin-bottom: 20px;
 }
 .card .icon{
-    width: 100px;
-    height: 100px;
+    width: 100%;
     display: inline-block;
     margin-bottom: 50px;
 }
 
 .card .degree{
-    font-size: 16pt;
+    font-size: 24pt;
+    color: #262473;
+    font-weight: bolder;
     margin-bottom: 10px;
 }
 .card .degree::after{
-    content: '°C';
-    font-weight: 300; 
+    content: '°K';
+    font-size: 24pt;
+    color: #262473;
+    font-weight: bolde;
     margin-left: 5px;
 }
 .card p:last-child{
-    font-weight: 100;
-    font-size: 10pt;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #f2a057;
 }
