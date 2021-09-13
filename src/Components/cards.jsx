@@ -8,7 +8,8 @@ const Cards =(props) =>{
             if(match.params.id<5){
                 return <WeatherCard index={match.params.id}
                          weatherInfo={data[match.params.id]}
-                         date = {nextDays[match.params.id]} />
+                         date = {nextDays[match.params.id]} 
+                         addClass="fullCard"/>
             }
             else{
                 return <Redirect to="not-found" />

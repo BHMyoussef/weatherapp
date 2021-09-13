@@ -3,6 +3,7 @@ import moment from "moment";
 import Cards from './Components/cards';
 import Header from './Components/header';
 import NotFoundPage from './Components/notFoundPage';
+import LoadingPage from './Components/loadingPage'
 import './main.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
 
@@ -34,18 +35,24 @@ class App extends Component{
     }
     render(){
         const nextDays = this.getNextDays();
+        if(this.state.data.length===0){
+            return(
+                <div>
+                    <Header/>
+                    <LoadingPage/>
+                </div>
+            );
+        }
         return(
             <div className="container">
                 <Header/>
                 <Switch>
+                    <Route path="/day:id" render={ (props)=> {return this.state.data.length !== 0 &&
+                                    <Cards {...props} data = {this.state.data}
+                                    nextDays = {nextDays} /> }}/>
                     <Route path="/not-found" component={ NotFoundPage } />
                     <Route path="/" exact component={(props)=> <Cards {...props} data = {this.state.data}
                             nextDays = {nextDays} /> }/>
-                       
-                    <Route path="/day:id" render={ (props)=> {return this.state.data.length !== 0 &&
-                                    <Cards {...props} data = {this.state.data}
-                                        nextDays = {nextDays} /> }}/>
-
                     <Redirect to="/not-found" />                  
                 </Switch>
             </div>

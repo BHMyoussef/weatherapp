@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class CardPage extends Component {
+class loadingPage extends Component {
     render() {
         return (
             <div>
-                
+                <h2>loading</h2>
             </div>
         )
     }
 }
 
-export default CardPage;
+export default loadingPage;

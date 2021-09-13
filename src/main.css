@@ -12,6 +12,7 @@
     margin: 0 auto 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    min-height: 100vh;
 }
 a{
     text-decoration: none;
@@ -45,7 +46,7 @@ a{
     margin-bottom: 70px;
 }
 .header h1{
-    font-size: 52pt;
+    font-size: 48pt;
     text-transform: capitalize;
     letter-spacing: 5px;
     font-weight: 900;
@@ -54,11 +55,9 @@ a{
 }
 @media (max-width:768px){
     .header h1{
-        font-size: 34pt;
-        text-transform: capitalize;
-        letter-spacing: 5px;
+        font-size: 38pt;
         font-weight: 700;
-        color:teal
+        color:#262473
     }
 }
 
@@ -69,7 +68,6 @@ a{
     width: 100%;
 }
 .card{
-    height: 400px;
     color: #fff;
     background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
@@ -115,4 +113,70 @@ a{
     font-size: 14pt;
     font-weight: 600;
     color: #f2a057;
+}
+
+.fullCard .infos{
+    display: flex;
+}
+.fullCard .infos .infos1{
+    flex: 1;
+    text-align: start;
+}
+.fullCard .infos .infos1 div{
+    position: relative;
+    margin-bottom: 20px;
+}
+.fullCard .infos .infos1 div .icon{
+    width: 40px;
+    height: 40px;
+    margin: 0 20px 0 0 ;
+    padding: 0;
+    display: inline-block;
+    background-size: cover;
+
+}
+.fullCard .infos .infos1 div:nth-child(1) .icon{
+    background-image: url("img/thermometer.png");
+}
+.fullCard .infos .infos1 div:nth-child(2) .icon{
+    background-image: url("img/thermometer-.png");
+}
+.fullCard .infos .infos1 div:nth-child(3) .icon{
+    background-image: url("img/humidity.png");
+}
+.fullCard .infos .infos1 div:nth-child(4) .icon{
+    background-image: url("img/blood-pressure.png");
+}
+.fullCard .infos .infos1 div:nth-child(5) .icon{
+    background-image: url("img/wind.png");
+}
+
+.fullCard .infos .infos1 div p{
+    display: inline-block;
+    position: absolute;
+    color: #262473;
+    font-weight: 800;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.fullCard .infos .infos1 div p span{
+    color: #6aaed9;
+}
+
+
+.fullCard .infos .infos2{
+    flex: 1;
+}
+.fullCard .infos .infos2 .icon{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+.fullCard .infos .infos2 .icon img{
+    width: 100%;
+}
+@media (max-width: 992px){
+    .fullCard .infos{
+        flex-direction: column;
+    }
 }
