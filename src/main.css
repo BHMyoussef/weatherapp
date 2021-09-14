@@ -13,6 +13,7 @@
     padding-left: 15px;
     padding-right: 15px;
     min-height: 100vh;
+    position: relative;
 }
 a{
     text-decoration: none;
@@ -50,6 +51,7 @@ a{
     font-weight: 900;
     color:#262473;
     letter-spacing: 0px;
+    cursor: pointer;
 }
 .header h3{
     text-transform: capitalize;
@@ -141,19 +143,19 @@ a{
     background-size: cover;
 
 }
-.fullCard .infos .infos1 div:nth-child(1) .icon{
+.fullCard .infos .infos1 div:nth-of-type(1) .icon{
     background-image: url("img/thermometer.png");
 }
-.fullCard .infos .infos1 div:nth-child(2) .icon{
+.fullCard .infos .infos1 div:nth-of-type(2) .icon{
     background-image: url("img/thermometer-.png");
 }
-.fullCard .infos .infos1 div:nth-child(3) .icon{
+.fullCard .infos .infos1 div:nth-of-type(3) .icon{
     background-image: url("img/humidity.png");
 }
-.fullCard .infos .infos1 div:nth-child(4) .icon{
+.fullCard .infos .infos1 div:nth-of-type(4) .icon{
     background-image: url("img/blood-pressure.png");
 }
-.fullCard .infos .infos1 div:nth-child(5) .icon{
+.fullCard .infos .infos1 div:nth-of-type(5) .icon{
     background-image: url("img/wind.png");
 }
 
@@ -200,4 +202,29 @@ a{
     .fullCard .infos{
         flex-direction: column;
     }
+}
+
+.loadingContainer{
+    margin: 0 auto;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.loadingContainer div{
+    width: 20px;
+    height: 20px;
+    background-color: #262473;
+    border-radius: 50%;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14pt;
+    font-weight: bolder;
+    color: #262473;
+}
+.footer span{
+    color: #f00;
 }

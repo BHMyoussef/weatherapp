@@ -3,7 +3,8 @@ import moment from "moment";
 import Cards from './Components/cards';
 import Header from './Components/header';
 import NotFoundPage from './Components/notFoundPage';
-import LoadingPage from './Components/loadingPage'
+import LoadingPage from './Components/loadingPage';
+import Footer from './Components/footer'
 import './main.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
 
@@ -63,9 +64,11 @@ class App extends Component{
                                     <Cards {...props} data = {this.state.data}
                                     nextDays = {nextDays} /> }}/>
                     <Route path="/weatherapp/not-found" component={ NotFoundPage } />
+                    <Route path="/weatherapp/loading" component={ LoadingPage } />
                     <Redirect from="/" exact to="/weatherapp"/>
                     <Redirect to="/weatherapp/not-found" />                  
                 </Switch>
+                <Footer/>
             </div>
         );
     }

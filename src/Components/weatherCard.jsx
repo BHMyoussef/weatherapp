@@ -1,14 +1,50 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const allweekDay=['dimanch','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
 const allMonth=['jan','fev','mars','apr','may','juin','juillet','aout','sept','oct','nov','dec']
+
+const divVariants={
+    hidden:{
+        opacity:0
+    },
+    visible:{
+        opacity:1,
+        transition:{
+            delay:1
+        }
+    },
+    hover:{
+        scale:1.2,
+        boxShadow:'2px 2px 8px #000'
+    },
+    click:{
+        scale:1.1,
+        boxShadow:'2px 2px 4px #000'
+    }
+}
+const afterClass = {
+    variants: divVariants,
+    initial:"hidden",
+    animate:"visible",
+}
+const beforeClass = {
+    variants: divVariants,
+    initial:"hidden",
+    animate:"visible",
+    whileHover:"hover",
+    whileTap:"click"
+}
 
 const WeatherCard = ({weatherInfo, date, index,addClass, back}) =>{
     console.log(index);
     return(
         <Link to={`/weatherapp/day${index}`}>
-            <div className={addClass?"card fullCard":"card"}>
+            <motion.div 
+                className={addClass?"card fullCard":"card"}
+                { ...(addClass?afterClass:beforeClass)}
+                >
                 <div className="head">
                     <h3>{allweekDay[date.day()]}</h3>
                     <p className="date">{`${allMonth[date.month()]} ${date.date()}`}</p>
@@ -17,7 +53,9 @@ const WeatherCard = ({weatherInfo, date, index,addClass, back}) =>{
                     {
                         addClass && 
                         <div className="infos1">
-                            <button onClick={()=>back()}></button>
+                            <motion.button onClick={()=>back()}
+                                whileHover={{scale:1.2}}
+                                whileTap={{scale:1}}></motion.button>
                             <div>
                                 <i className="icon"></i>
                                 <p>Max temprature: <span>{weatherInfo.main.temp_max}</span>°K</p>
@@ -49,7 +87,7 @@ const WeatherCard = ({weatherInfo, date, index,addClass, back}) =>{
                         <p>{weatherInfo.weather[0].description}</p>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </Link>
     );
 }
