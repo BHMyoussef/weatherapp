@@ -47,14 +47,14 @@ class App extends Component{
             <div className="container">
                 <Header/>
                 <Switch>
-                    <Route path="/day:id" render={ (props)=> {return this.state.data.length !== 0 &&
-                                    <Cards {...props} data = {this.state.data}
-                                    nextDays = {nextDays} /> }}/>
-                    <Route path="/not-found" component={ NotFoundPage } />
                     <Route path="/weatherapp" exact component={(props)=> <Cards {...props} data = {this.state.data}
                             nextDays = {nextDays} /> }/>
-                    <Redirect from="/" to="/weatherapp"/>
-                    <Redirect to="/not-found" />                  
+                    <Route path="/weatherapp/day:id" render={ (props)=> {return this.state.data.length !== 0 &&
+                                    <Cards {...props} data = {this.state.data}
+                                    nextDays = {nextDays} /> }}/>
+                    <Route path="/weatherapp/not-found" component={ NotFoundPage } />
+                    <Redirect from="/" exact to="/weatherapp"/>
+                    <Redirect to="/weatherapp/not-found" />                  
                 </Switch>
             </div>
         );

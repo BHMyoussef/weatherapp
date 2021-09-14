@@ -12,7 +12,7 @@ const Cards =(props) =>{
                          addClass="fullCard"/>
             }
             else{
-                return <Redirect to="not-found" />
+                return <Redirect to="weatherapp/not-found" />
             }
         }else{
             return(

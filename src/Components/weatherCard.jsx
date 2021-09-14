@@ -7,7 +7,7 @@ const allMonth=['jan','fev','mars','apr','may','juin','juillet','aout','sept','o
 const WeatherCard = ({weatherInfo, date, index,addClass}) =>{
     console.log(addClass);
     return(
-        <Link to={`day${index}`}>
+        <Link to={`weatherapp/day${index}`}>
             <div className={addClass?"card fullCard":"card"}>
                 <div className="head">
                     <h3>{allweekDay[date.day()]}</h3>
