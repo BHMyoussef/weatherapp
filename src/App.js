@@ -7,21 +7,31 @@ import LoadingPage from './Components/loadingPage'
 import './main.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-const endPointApi = 'https://api.openweathermap.org/data/2.5/forecast?q=marrakech&appid=3518ad82ca06ca13a7b7b9a218d61c51'
+function getWeatherApi(city){
+    return `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=3518ad82ca06ca13a7b7b9a218d61c51`;
+}
 class App extends Component{
     state ={
         data:[],
+        city:''
     }
     componentDidMount(){
         let data = [];
         let i = 0;
-        fetch(endPointApi).then(response => response.json()).then(response => {
-            for(i=0;i<5;i++){
-                let day = response.list[i];
-                data.push(day);
-            }
-            this.setState({data});
-        });
+        fetch('https://extreme-ip-lookup.com/json')
+        .then(response => response.json())
+        .then(response => {
+            this.setState({city:response.city});})
+        .then(()=>{
+            const endPointApi = getWeatherApi(this.state.city)
+            fetch(endPointApi).then(response => response.json()).then(response => {
+                for(i=0;i<5;i++){
+                    let day = response.list[i];
+                    data.push(day);
+                }
+                this.setState({data});
+            });
+        })
     }
     getNextDays(){
         const nextDays = [
@@ -45,7 +55,7 @@ class App extends Component{
         }
         return(
             <div className="container">
-                <Header/>
+                <Header city={this.state.city}/>
                 <Switch>
                     <Route path="/weatherapp" exact component={(props)=> <Cards {...props} data = {this.state.data}
                             nextDays = {nextDays} /> }/>

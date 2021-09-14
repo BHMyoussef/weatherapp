@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const allweekDay=['dimanch','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
 const allMonth=['jan','fev','mars','apr','may','juin','juillet','aout','sept','oct','nov','dec']
 
-const WeatherCard = ({weatherInfo, date, index,addClass}) =>{
-    console.log(addClass);
+const WeatherCard = ({weatherInfo, date, index,addClass, back}) =>{
+    console.log(index);
     return(
-        <Link to={`weatherapp/day${index}`}>
+        <Link to={`/weatherapp/day${index}`}>
             <div className={addClass?"card fullCard":"card"}>
                 <div className="head">
                     <h3>{allweekDay[date.day()]}</h3>
@@ -17,6 +17,7 @@ const WeatherCard = ({weatherInfo, date, index,addClass}) =>{
                     {
                         addClass && 
                         <div className="infos1">
+                            <button onClick={()=>back()}></button>
                             <div>
                                 <i className="icon"></i>
                                 <p>Max temprature: <span>{weatherInfo.main.temp_max}</span>°K</p>

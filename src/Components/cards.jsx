@@ -9,7 +9,8 @@ const Cards =(props) =>{
                 return <WeatherCard index={match.params.id}
                          weatherInfo={data[match.params.id]}
                          date = {nextDays[match.params.id]} 
-                         addClass="fullCard"/>
+                         addClass="fullCard"
+                         back={props.history.goBack}/>
             }
             else{
                 return <Redirect to="weatherapp/not-found" />
